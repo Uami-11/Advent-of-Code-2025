@@ -6,19 +6,19 @@
 void calculatePassword(std::string rotation, int& count, int& position)
 {
     int mag = std::stoi(rotation.substr(1));
+    int direction = 1;
     if (rotation[0] == 'L')
+        direction *= -1;
+
+    for (int i = 0; i < abs(mag); i++)
     {
-        mag *= -1;
-    }
-    
-    position = (position + mag) % 100;
-    if (position < 0)
-    {
-        position += 100;
-    }
-    if (position == 0)
-    {
-        count++;
+        position += direction;
+
+        if (position > 99) position = 0;
+        if (position < 0) position = 99;
+        
+        if (position == 0) count++;
+
     }
 }
 
