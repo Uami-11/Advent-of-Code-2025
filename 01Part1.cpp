@@ -11,7 +11,7 @@ void calculatePassword(std::string rotation, int& count, int& position)
         mag *= -1;
     }
     
-    position = (position + mag) % 99;
+    position = (position + mag) % 100;
     if (position < 0)
     {
         position += 100;
